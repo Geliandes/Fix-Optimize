@@ -1,3 +1,14 @@
+function cartFix() {
+  const cartObserved = document.querySelectorAll(".e-minicart.js--minicart");
+  
+  if (cartObserved[0] != null || cartObserved[1] != null) {
+    const observerCart = new MutationObserver(() => {
+      CardMob();
+      console.log("executou")
+    });
+    observerCart.observe((cartObserved[0], cartObserved[1]), {attributes: true});
+  }
+
 function CardMob() {
   var home = document.querySelector(".ajax-content-loader");
   var Eminicart = document.querySelector(".e-minicart");
@@ -531,22 +542,6 @@ function CardMob() {
     modalCupom.click();
   }
 
-  //observador do carrinho desktop
-  const cartIconObserverved = document.querySelectorAll('.e-header__info--item.e-header__info--item-minicart')
-
-	if (cartIconObserverved[0] != null) {
-		const observerCartIcon = new MutationObserver(() => {
-      if(cartIconObserverved[0].classList.contains('is--active') || cartIconObserverved[1].classList.contains('is--active')){
-        console.log('carrinho abriu')
-      } else {
-        console.log('carrinho fechado')
-      }
-      
-		});
-		observerCartIcon.observe((cartIconObserverved[0], cartIconObserverved[1]), {attributes: true});
-	}
-
-
   var Eposition = document.querySelector(".e-position");
   var Eposition_shadow = document.createElement("div");
   Eposition.appendChild(Eposition_shadow);
@@ -596,8 +591,8 @@ function CardMob() {
     var Eposition = document.querySelector(".Eposition_shadow");
     Eposition.classList.toggle("Eposition_shadow-is--active");
 
-    var EminicartCards = document.getElementsByClassName("EminicartCard");
-    EminicartCards.classList.toggle("EminicartCard__Is--active");
+    var EminicartCards = document.querySelector(".EminicartCard");
+    EminicartCards.classList.add("EminicartCard__Is--active");
   }
 
   var alt_SubTotal = document.querySelector("#MostraTextoXml5");
@@ -1374,8 +1369,9 @@ function CardMob() {
 
   addStyle(styles);
 }
-
+}
+//$(window).ready(CardMob);
 /* $(document).ready(CardMob); */
  window.addEventListener("load", function () {
-  CardMob();
-}); 
+  cartFix();
+})

@@ -531,6 +531,22 @@ function CardMob() {
     modalCupom.click();
   }
 
+  //observador do carrinho desktop
+  const cartIconObserverved = document.querySelectorAll('.e-header__info--item.e-header__info--item-minicart')
+
+	if (cartIconObserverved[0] != null) {
+		const observerCartIcon = new MutationObserver(() => {
+      if(cartIconObserverved[0].classList.contains('is--active') || cartIconObserverved[1].classList.contains('is--active')){
+        console.log('carrinho abriu')
+      } else {
+        console.log('carrinho fechado')
+      }
+      
+		});
+		observerCartIcon.observe((cartIconObserverved[0], cartIconObserverved[1]), {attributes: true});
+	}
+
+
   var Eposition = document.querySelector(".e-position");
   var Eposition_shadow = document.createElement("div");
   Eposition.appendChild(Eposition_shadow);
@@ -1358,8 +1374,8 @@ function CardMob() {
 
   addStyle(styles);
 }
-$(window).ready(CardMob);
+
 /* $(document).ready(CardMob); */
-/* window.addEventListener("load", function () {
+ window.addEventListener("load", function () {
   CardMob();
-}); */
+}); 

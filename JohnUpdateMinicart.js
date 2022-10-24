@@ -1,4 +1,40 @@
+// function cartFix() {
+//   const cartObserved = document.querySelectorAll(".e-minicart.js--minicart");
+  
+//   if (cartObserved[0] != null || cartObserved[1] != null) {
+//     const observerCart = new MutationObserver(() => {
+      
+//       let miniCartLegacy =  document.querySelectorAll('.e-minicart.js--minicart.is--active')
+//       miniCartLegacy[0] != null ? miniCartLegacy[0].classList.remove('is--active') : null;
+//       miniCartLegacy[1] != null ? miniCartLegacy[1].classList.remove('is--active') : null;
+
+//       let remove = document.querySelectorAll('.e-position')[1]
+//       remove != null ? remove.parentElement.removeChild(remove) : null;
+      
+//       CardMob();
+
+//       miniCartLegacy[0] != null ? miniCartLegacy[0].classList.remove('is--active') : null;
+//       miniCartLegacy[1] != null ? miniCartLegacy[1].classList.remove('is--active') : null;
+
+//     });
+//     observerCart.observe((cartObserved[0], cartObserved[1]), {attributes: true});
+//   }
+// }
+
 function CardMob() {
+
+  //correção do bug Shadow - FIM
+  let miniCartLegacy =  document.querySelectorAll('.e-minicart.js--minicart.is--active')
+  miniCartLegacy[0] != null ? miniCartLegacy[0].classList.remove('is--active') : null;
+  miniCartLegacy[1] != null ? miniCartLegacy[1].classList.remove('is--active') : null;
+
+  let remove = document.querySelectorAll('.e-position')[1]
+  remove != null ? remove.parentElement.removeChild(remove) : null;
+  
+  miniCartLegacy[0] != null ? miniCartLegacy[0].classList.remove('is--active') : null;
+  miniCartLegacy[1] != null ? miniCartLegacy[1].classList.remove('is--active') : null;
+
+  //correção do bug Shadow - FIM
 
     var home = document.querySelector(".ajax-content-loader");
     var Eminicart = document.querySelector(".e-minicart");
@@ -1338,4 +1374,6 @@ function CardMob() {
     addStyle(styles);
 }
 
-$(window).ready(CardMob);
+window.addEventListener("load", () => {
+  CardMob();
+})

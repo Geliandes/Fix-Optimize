@@ -1354,7 +1354,9 @@ function CardMob() {
     `;
     addStyle(styles);
 }
+    let miniCartLegacy =  document.querySelector('.e-minicart.js--minicart.is--active')
 
+    miniCartLegacy != null ? miniCartLegacy.classList.remove('is--active') : null;
 }
 //$(window).ready(CardMob);
 /* $(document).ready(CardMob); */

@@ -8,8 +8,8 @@ function cartFix() {
       console.log("executou")
 
       let miniCartLegacy =  document.querySelector('.e-minicart.js--minicart.is--active')
-
       miniCartLegacy != null ? miniCartLegacy.classList.remove('is--active') : null;
+      
     });
     observerCart.observe((cartObserved[0], cartObserved[1]), {attributes: true});
   }
